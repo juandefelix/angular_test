@@ -6,7 +6,15 @@ app.controller('raffleCtrl', function($scope){
     {name: 'Juan'},
     {name: 'Tad'}
     ]
-  $scope.addEntry = function(entry){
-    $scope.entries.push({name: entry})
+  $scope.addEntry = function(){
+    $scope.entries.push($scope.newEntry)
+    $scope.newEntry = {}
   };
+
+  $scope.drawWinner = function(){
+    var index = Math.floor(Math.random()*$scope.entries.length)
+    entry = $scope.entries[index];
+    entry.winner = true;
+    $scope.lastWinner = entry;
+  }
 })

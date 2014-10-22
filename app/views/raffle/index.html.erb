@@ -1,13 +1,15 @@
 <h1>Raffle</h1>
 <div ng-app="myApp" ng-controller="raffleCtrl">
   <form ng-submit="addEntry(name)">
-    <input type="text" ng-model="name"><br><br>
+    <input type="text" ng-model="newEntry.name"><br><br>
     <input type="submit" value="Add"></input>
     <p>{{name}}</p>
+  </form>
     <ul>
       <li ng-repeat="entry in entries">
         {{entry.name}}
+        <span ng-show="entry.winner" class="winner">WINNER!</span>
       </li>
     </ul>
-  </form>
+    <button ng-click="drawWinner()">Draw Winner</button>
 </div>
