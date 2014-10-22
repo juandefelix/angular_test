@@ -25,3 +25,9 @@
   border-radius: 3px;
   text-align: center;
 }
+
+.highlight {
+  color: red;
+  font-weight: bold;
+}
+

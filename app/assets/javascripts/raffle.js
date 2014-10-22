@@ -12,9 +12,17 @@ app.controller('raffleCtrl', function($scope){
   };
 
   $scope.drawWinner = function(){
-    var index = Math.floor(Math.random()*$scope.entries.length)
-    entry = $scope.entries[index];
-    entry.winner = true;
-    $scope.lastWinner = entry;
+    pool = []
+    angular.forEach($scope.entries, function(entry){
+      if (!entry.winner) {
+        pool.push(entry) 
+      }
+    })
+    if (pool.length > 0) {
+      var index = Math.floor(Math.random()*pool.length)
+      entry = pool[index];
+      entry.winner = true;
+      $scope.lastWinner = entry;
+    }
   }
 })
